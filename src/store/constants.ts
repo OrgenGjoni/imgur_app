@@ -6,3 +6,4 @@ export const SET_OPEN_MODAL : string = 'SET_OPEN_MODAL';
 export const SET_LOADING : string = 'SET_LOADING';
 export const SET_VIRAL : string = 'SET_VIRAL';
 export const SET_PAGE : string = 'SET_PAGE';
+export const SET_ERROR : string = 'SET_ERROR';

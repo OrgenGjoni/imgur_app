@@ -1,9 +1,7 @@
 import React,{useState} from 'react';
-import {AppBar,Button,Menu,MenuItem, makeStyles} from '@material-ui/core';
-import {AiFillFire,AiFillTrophy,AiOutlineRise} from 'react-icons/ai';
-import {FaUser} from 'react-icons/fa';
+import {Button,Menu,MenuItem, makeStyles} from '@material-ui/core';
 import {IoMdArrowDropdown} from 'react-icons/io';
-import {GiSandsOfTime} from 'react-icons/gi';
+
 const newStyle = makeStyles(()=>({
   button : {
     color : 'white',

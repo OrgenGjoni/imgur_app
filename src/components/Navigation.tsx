@@ -1,6 +1,5 @@
 import React from 'react';
 import {Grid,IconButton,makeStyles} from '@material-ui/core';
-import {BiDownArrow} from 'react-icons/bi';
 import {useSelector,useDispatch} from 'react-redux';
 import {setPage} from '../store/actions';
 

@@ -1,7 +1,5 @@
 import React,{useState} from 'react';
-import {AppBar,Button,Menu,MenuItem,ListItemIcon,makeStyles} from '@material-ui/core';
-import {AiFillFire,AiFillTrophy} from 'react-icons/ai';
-import {FaUser} from 'react-icons/fa';
+import {Button,Menu,MenuItem,makeStyles} from '@material-ui/core';
 import {IoMdArrowDropdown} from 'react-icons/io';
 
 const newStyle = makeStyles(()=>({

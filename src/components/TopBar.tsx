@@ -1,10 +1,10 @@
-import React,{useState} from 'react';
-import {AppBar,Toolbar,Switch, makeStyles} from '@material-ui/core';
+import React from 'react';
+import {AppBar,Grid,Toolbar,Switch, makeStyles} from '@material-ui/core';
 import SectionMenu from './SectionMenu';
 import SortMenu from './SortMenu';
 import WindowMenu from './WindowMenu';
 import {useSelector,useDispatch} from 'react-redux';
-import {setSection,setViral,setSort,setWindow,setPage} from '../store/actions';
+import {setSection,setViral,setSort,setWindow} from '../store/actions';
 
 
 const newStyle = makeStyles(()=>({
@@ -17,6 +17,9 @@ const newStyle = makeStyles(()=>({
     alignItems : 'center',
     backgroundColor : '#171544',
     padding : 5
+  },
+  logoContainer : {
+    width : '30%'
   }
 }))
 
@@ -57,7 +60,16 @@ const TopBar = ()=>{
         <SectionMenu changeSection = {changeSection}  selected = {state.section}/>
         <Switch color="primary" checked = {state.viral} onChange = {handleSwitch} /><b><small>Viral Images</small>{state.viral ? <small style = {{color : '#1bb76e'}}> ON </small> : <small style = {{color : '#ef233c'}}> OFF</small> }</b>
       </Toolbar>
-      <ImgurIcon />
+      <Grid container
+      justify = 'flex-start'
+      alignItems = 'center'
+      className = {style.logoContainer}
+      >
+
+        <a href = '/'><ImgurIcon /></a>
+      </Grid>
+
+
       <Toolbar>
         {state.section === 'user' && <SortMenu changeSort = {changeSort}  selected = {state.sort}/>}
         {state.section === 'top' && <WindowMenu changeWindow = {changeWindow}  selected = {state.window}/>}

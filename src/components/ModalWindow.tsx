@@ -2,8 +2,6 @@ import React from 'react';
 import {Grid,Modal,Paper,CardContent,makeStyles} from '@material-ui/core';
 import {useSelector,useDispatch} from 'react-redux';
 import {setModal} from '../store/actions';
-import {BiCommentDetail} from 'react-icons/bi'
-import {ImArrowUp,ImArrowDown,ImEye} from 'react-icons/im'
 
 const newStyle = makeStyles(()=>({
   container : {
@@ -80,7 +78,6 @@ const ModalWindow = ()=>{
         }else{
           return "img"
         }
-          //return 'img'
     }
   }
 
@@ -91,20 +88,10 @@ const ModalWindow = ()=>{
 
   }
 
-  //Round numbers to K or M
-  const roundNumbers = (nr : number) : string=>{
-    if(nr > 1000000){
-
-        return Math.round(nr/1000000) + 'M'
-      }else{
-        return Math.round(nr/1000) + 'K'
-      }
-
-  }
 
   const showMedia = ()=>{
     if(findMediaType(content) === 'img'){
-      return <img className = {style.image} src = {content?.images ? content.images[0].link : content.link } />
+      return <img alt = {content.title} className = {style.image} src = {content?.images ? content.images[0].link : content.link } />
     }else{
       return <video className = {style.video} src = {content.images !== undefined ? content.images[0].link : content.mp4} controls />
     }

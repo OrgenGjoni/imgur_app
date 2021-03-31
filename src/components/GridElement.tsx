@@ -1,7 +1,7 @@
 import React from 'react';
-import {IconButton,Grid,Card,CardMedia,CardActions,CardActionArea,CardContent,makeStyles} from '@material-ui/core';
+import {Grid,Card,CardActionArea,CardContent,makeStyles} from '@material-ui/core';
 import {BiCommentDetail} from 'react-icons/bi'
-import {ImArrowUp,ImArrowDown,ImEye} from 'react-icons/im'
+import {ImArrowUp,ImEye} from 'react-icons/im'
 import {AiOutlinePlayCircle} from 'react-icons/ai'
 
 
@@ -102,7 +102,7 @@ const GridElement = ({content,openModal} : iProps)=>{
 
   const showMedia = ()=>{
     if(findMediaType(content) === 'img'){
-      return <img className = {style.image} src = {content?.images ? content.images[0].link : content.link } />
+      return <img className = {style.image} alt = {content.title} src = {content?.images ? content.images[0].link : content.link } />
     }else{
       return (
           <>

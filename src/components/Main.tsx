@@ -1,11 +1,11 @@
-import React,{useState,useEffect} from 'react';
+import React,{useEffect} from 'react';
 import { Container,CssBaseline,makeStyles} from '@material-ui/core';
 import {useDispatch,useSelector} from 'react-redux';
 import TopBar from './TopBar';
 import CardGrid from './CardGrid';
 import {loadData,setLoading} from '../store/actions';
-import axios from 'axios';
 import LoadingComponent from './LoadingComponent';
+import ErrorTab from './ErrorTab';
 
 const newStyle = makeStyles(()=>({
   container : {
@@ -18,7 +18,7 @@ const newStyle = makeStyles(()=>({
   }
 }))
 
-  const CLIENT_ID : string = (process.env.REACT_APP_CLIENT_ID as any) as string;
+
 
   const Main = ()=>{
 
@@ -52,7 +52,8 @@ const newStyle = makeStyles(()=>({
       }
     }
 
-
+    //Probably using more than one useEffect looks ugly but in the circumstance that it doesn't allow me to ad more than one depency
+    // to fire it I've chosen this way to implement it
 
     useEffect(()=>{
       const url : string = checkParam(state.section) + checkParam(state.sort) + checkParam(state.window) + checkPage(state.page) + checkViral(state.viral);
@@ -79,6 +80,7 @@ const newStyle = makeStyles(()=>({
           <TopBar />
           {state.data === null && <LoadingComponent />}
           {state.data !== null && <CardGrid />}
+          <ErrorTab />
         </Container>
       </>
     )

@@ -1,5 +1,5 @@
-import React,{useEffect} from 'react';
-import {Grid,Card,CircularProgress,makeStyles} from '@material-ui/core';
+import React from 'react';
+import {Grid,CircularProgress,makeStyles} from '@material-ui/core';
 import GridElement from './GridElement';
 import {useSelector,useDispatch} from 'react-redux';
 import {setModal} from '../store/actions';
@@ -17,7 +17,10 @@ const newStyle = makeStyles(()=>({
     minWidth : '100%',
     minHeight : '100%'
   }
-}))
+}));
+
+
+
 const CardGrid = ()=>{
   const state = useSelector((state  : any) => state);
   const dispatch = useDispatch();
@@ -25,7 +28,7 @@ const CardGrid = ()=>{
 
   const openModal = (data :any)=>{
     dispatch(setModal(data));
-  }
+  };
 
 
   const LoadingPage = ()=>(
@@ -37,7 +40,7 @@ const CardGrid = ()=>{
         <CircularProgress size = {100}/>
 
     </Grid>
-  )
+  );
 
 
   return(

@@ -1,5 +1,5 @@
 
-import {SET_SECTION,SET_SORT,SET_WINDOW,SET_DATA,SET_OPEN_MODAL,SET_LOADING,SET_VIRAL,SET_PAGE} from './constants';
+import {SET_SECTION,SET_SORT,SET_WINDOW,SET_DATA,SET_OPEN_MODAL,SET_LOADING,SET_VIRAL,SET_PAGE,SET_ERROR} from './constants';
 
 const initialState = {
   section : 'hot',
@@ -9,7 +9,8 @@ const initialState = {
   page : null,
   data : null,
   modal : false,
-  loading : false
+  loading : false,
+  error : false
 }
 
 
@@ -45,6 +46,8 @@ const reducer = (state = initialState,action : any)=>{
         return Object.assign({},state,{viral : action.payload});
     case SET_PAGE :
         return Object.assign({},state,{page : action.payload});
+    case SET_ERROR :
+        return Object.assign({},state,{error : action.payload});
 
       default:
         return state;
